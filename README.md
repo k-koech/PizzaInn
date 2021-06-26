@@ -29,7 +29,7 @@
     - See a checkout button that when clicked shows the total amount charged for the orders.
   
 ## Live link
-   Deployed project can be accessed here -  [Delani Studio](https://k-koech.github.io/PizzaInn/)
+   Deployed project can be accessed here -  [PizzaInn](https://k-koech.github.io/PizzaInn/)
    
 ## Technologies used
     - JS
