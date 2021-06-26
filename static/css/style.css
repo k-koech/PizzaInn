@@ -1,0 +1,486 @@
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
+
+
+html
+{
+    scroll-behavior: smooth;
+}
+a
+{
+    text-decoration: none !important;
+    color: #fff;
+}
+a:hover
+{
+    color: rgb(214, 207, 178);
+}
+
+/* ==========HEADER============= */
+#header
+{
+height: 100vh;
+}
+#header .navbar-brand
+{
+    color: #fff;
+    font-size: 1.9em;
+    font-weight: 1000;
+}
+#header .container-nav 
+{
+    position: absolute;
+    top: 0px;
+    z-index: 1000;
+    width: 100%;
+}
+
+#header .container-nav .navbar 
+{
+    color: #fff !important;
+}
+
+#header  .container-fluid
+{
+    position: relative;
+}
+#header .container-nav li a
+{
+    font-size: 1.3em;
+    color: black;
+}
+#header .col1
+{
+    padding-top: 10%;
+    padding-left: 10%;
+    background-color: rgb(26, 26, 26);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+#header .col1 h1
+{
+    font-size: 4em;
+    color: #fff;
+    font-weight: 1000;
+}
+
+#header .col1 h3
+{
+    color: #fff;
+}
+#header .col1 button
+{
+    margin: 1em;
+    font-size: 1.4em;
+    width: 10em;
+
+}
+#header .col1 .delivery
+{margin-top: 2em;
+    display: flex;
+    color: #fff;
+    height: 5em;
+    align-items: center;
+}
+#header .col1 .delivery img
+{
+  height: 100%;
+}
+#header .col2
+{
+    background-image: url(../images/1.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* ==========MENU============= */
+#menu
+{
+    margin:3em 1em;
+    text-align: center;
+}
+#menu h2
+{
+    font-family: 'Architects Daughter', cursive;
+    color: brown;
+} 
+#menu h1
+{
+    font-weight: 1000;
+}
+#menu h1 span
+{
+    color: brown;
+}
+#menu .row1
+{
+    margin: 2em 1em;
+    padding: 1em;
+}
+#menu .row1 .cols
+{
+    background-image: url(../images/flower.png);
+    background-repeat: no-repeat;
+    border: 1px solid #999;
+    padding: 1em;
+
+}
+#menu .row1 .cols:hover
+{
+    cursor: pointer;
+    background-color: brown;
+    color: #fff;
+}
+#menu .row1 .cols img
+{
+    height:80%
+}
+#menu .row1 .cols h5
+{
+    font-weight: 600;
+}
+#menu .row2 h4
+{
+    font-weight: 600;
+}
+#menu .row2 .menu-items
+{
+    text-align: left;
+}
+#menu .row2 .menu-items p
+{
+font-size: 1.2em;
+}
+
+
+/* ==========ORDER============= */
+#order
+{
+    margin:2em 1em;
+    padding-top: 1em;
+}
+#order .row1
+{
+    padding: 1em;
+}
+#order button
+{
+    background-color: brown !important;
+    border:0;
+    font-size: 1em;
+}
+#order h2
+{
+    font-family: 'Architects Daughter', cursive;
+    color: brown;
+} 
+#order h1
+{
+    font-weight: 1000;
+}
+#order h1 span
+{
+    color: brown;
+}
+#order form
+{
+    font-size: 1.3em;
+}
+#order table #order-body
+{
+    counter-reset: row-num;
+}
+
+table tr {
+  counter-increment: row-num;
+}
+table tr td:first-child::before 
+{
+    content: counter(row-num) ". ";
+}
+
+#order caption 
+{
+    caption-side: top; 
+    font-weight: 1000;
+    color:#000;
+    font-size: 1.5em;
+}
+#order .continue-button
+{
+    display: none;
+}
+
+
+/* ==========FOOTER============= */ 
+#footer
+{
+	background-image: linear-gradient(to right,#1a1919, #413b3a); 
+	color:#fff;
+}
+
+.footer-img
+{
+	width: 100%;
+}
+.footer-box
+{
+	padding: 20px;
+}
+.footer-box img
+{
+	width: 120px;margin-bottom: 20px;
+}
+#footer .delivery
+{
+    background-color: cdetblue;
+    margin-top: 2em;
+    display: flex;
+    color: #fff;
+    height: 3em;
+    align-items: center;
+}
+#footer .delivery div
+{
+    padding-left: 1em;
+}
+#footer .delivery img
+{
+  height: 100%;
+  width: auto;
+}
+
+.footer-box i 
+{
+ margin-right: 8px;
+ font-size: 25px;
+ height: 40px;
+ width: 40px;text-align: center;
+ border-radius: 2px;
+ padding-top: 7px;
+ background-image: linear-gradient(to right,#170603, #211715);
+}
+.footer-box .form-control
+{
+	box-shadow: none !important;
+	border:none;
+	border-radius: 0;
+	max-width: 250px;
+	margin-top: 25px;
+}
+.footer-box .btn-dark
+{
+box-shadow: none !important;
+	border:none;
+	border-radius: 0;
+	margin-top: 30px;
+}
+.copyright
+{
+	padding-bottom: 3em;
+    margin-bottom: 0;
+	text-align: center;
+	padding-bottom: 20px;
+}
+
+#footer h4
+{
+    font-size: 1.3em;
+   text-align: center;
+   padding: 1%;
+}
+
+#footer #social-media
+{
+    text-align: center;
+    margin: 1em;
+}
+#footer #social-media a
+{
+    padding: 2%;
+    color: white;
+}
+#footer #social-media a:hover
+{
+    color: brown;
+}
+#footer #social-media i
+{
+    font-size: larger;
+} 
+
+#footer .float
+{
+	position:fixed;
+	width:50px;
+	height:50px;
+	bottom:40px;
+	right:3%;
+	background-color:#0C9;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+	box-shadow: 2px 2px 3px #999;
+    display: flex;
+}
+#footer a
+{
+   text-decoration: none;
+}
+#footer .my-float{
+	margin:auto;
+    font-size: 1.2em;
+}
+#footer .backToTop 
+{
+    position:fixed;
+	width:50px;
+	height:50px;
+	bottom:40px;
+	right:10%;
+	background-color:brown;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+	box-shadow: 2px 2px 3px rgb(255, 107, 107);
+    display: flex;
+}
+#footer .backToTop .toTop
+{
+	margin:auto;
+    font-size: 1.2em;
+}
+
+#footer .float
+{
+	position:fixed;
+	width:65px;
+	height:65px;
+	bottom:40px;
+	right:3%;
+	background-color:brown;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+	box-shadow: 2px 2px 3px rgb(255, 107, 107);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+
+/* [[[[[[[[[[[[[[[[[[[[[[[[[[[[-----RESPONSIVE  WEB----[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[ */
+
+@media screen and (max-width: 780px) 
+{
+    /* ==========HEADER============= */
+#header
+{
+height: 100vh;
+}
+#header .navbar-brand
+{
+    color: #fff;
+    font-size: 1.9em;
+}
+#header .navbar-toggler .navbar-toggler-icon
+{
+    background-color: ;
+    color: #fff !important;
+    border-color: crimson !important;
+}
+#header ul
+{
+    padding: 1em;
+    border-radius: 1em;
+    background-color: #fff;
+}
+
+#header .col1
+{
+    padding-top: 10%;
+    padding-left: 5%;
+}
+#header .col1 h1
+{
+    font-size: 3em;
+    color: #fff;
+    font-weight: 1000;
+}
+
+#header .col1 h3
+{
+    color: #fff;
+}
+#header .col1 button
+{
+    margin: 1em;
+    font-size: 1.4em;
+    width: 10em;
+
+}
+#header .col1 .delivery
+{margin-top: 2em;
+    display: flex;
+    color: #fff;
+    height: 5em;
+    align-items: center;
+}
+#header .col1 .delivery img
+{
+  height: 100%;
+}
+#header .col2
+{
+    background-image: url(../images/1.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* ==========MENU============= */
+#menu
+{
+    margin:3em 1em;
+    text-align: center;
+}
+#menu h2
+{
+    font-family: 'Architects Daughter', cursive;
+    color: brown;
+} 
+#menu h1
+{
+    font-weight: 1000;
+}
+#menu h1 span
+{
+    color: brown;
+}
+
+
+/* ==========FOOTER============= */ 
+#footer a
+{
+   text-decoration: none;
+}
+#footer .float
+{
+	position:fixed;
+	width:65px;
+	height:65px;
+	bottom:40px;
+	right:3%;
+	background-color:rgba(1, 80, 50, 0.925);
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+	box-shadow: 2px 2px 3px #999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+}
