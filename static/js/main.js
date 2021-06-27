@@ -137,7 +137,24 @@ $(document).ready(function(){
  });
 
     //    Saving Data From Address form
+    $("form#address").submit(function(event){
+        event.preventDefault();
 
+        var street = $(".street").val();
+        var town = $(".town").val();
+        var county = $(".county").val();
+
+        var newAddress= new Address(street,town,county);
+      
+        // hide modal after submit
+        $('.address-modal').hide();
+        $('body').removeClass('modal-open');
+        $('.modal-backdrop').remove();
+        // disable button after address has been added
+        $(".addAddress").html('<i class="fa fa-check" aria-hidden="true"></i> Delivery address added!');
+        $(".addAddress").attr("disabled", true);
+
+    });
         
 
 });
