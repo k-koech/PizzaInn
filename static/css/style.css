@@ -215,7 +215,14 @@ transform: translate(-50%, -50%);
     max-height: 35em;
     overflow: scroll;
 }
-
+#order #col2-img
+{
+    background-image: url("../images/order1.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 22em;
+}
 
 #order .addAddress, .checkout, .order-button
 {
