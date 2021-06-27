@@ -214,6 +214,7 @@ transform: translate(-50%, -50%);
     display: none;
     max-height: 35em;
     overflow: scroll;
+    padding-bottom:1em;
 }
 #order #col2-img
 {
@@ -491,16 +492,6 @@ height: 100vh;
 {
     font-size: 1.3em;
 }
-#header .col1
-{
-    padding-top: 10%;
-    padding-left: 10%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-}
-
 
 #header .navbar-toggler .navbar-toggler-icon
 {
@@ -534,7 +525,7 @@ height: 100vh;
 #header .col1 button
 {
     margin: 1em;
-    font-size: 1.4em;
+    font-size: 1.1em;
     width: 10em;
 
 }
@@ -549,6 +540,10 @@ height: 100vh;
 #header .col1 .delivery img
 {
   height: 100%;
+}
+#header .col1 .delivery h4
+{
+    font-size: 1.2em;
 }
 #header .col2
 {
@@ -565,16 +560,31 @@ height: 100vh;
 }
 #menu h2
 {
-    font-family: 'Architects Daughter', cursive;
-    color: brown;
+    font-size: 1.4em;
 } 
 #menu h1
 {
-    font-weight: 1000;
+    font-size: 1.8em;
 }
 #menu h1 span
 {
     color: brown;
+}
+
+/* ==========ORDER============= */
+
+#order .row1
+{
+    padding: 0.5em;
+}
+
+#order h2
+{
+    font-size: 1.4em;
+} 
+#order h1
+{ 
+    font-size: 1.8em;
 }
 
 

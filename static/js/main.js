@@ -19,7 +19,6 @@ function Order(pizza,pizzaPrice, crust, crustPrice)
        price : crustPrice
    };
    this.toppings = [];
-   this.addresses = [];
 }
 
 function Topping(name, price)
@@ -43,6 +42,7 @@ Address.prototype.fullAddress = function()
 // Prices objects
 var totalCost = 0;
 var deliveryFee=150;
+var newAddress;
 var totalToppingCost = 0;
 var pizzaPrices = {
     Small: 600,
@@ -66,13 +66,14 @@ var toppingPrices = {
 $("#delivery-checkbox").click(function(event){
   $(".addAddress").toggle();
 });
+
 // Find the total cost after checkout button is clicked 
 $(document).ready(function(){
     $("button.checkout").click(function(event){
-        $("#summary-body").append("<tr><td>Delivery Address</td><td>"+ address.fullAddress + "</td><tr> <td>Total Order Costs</td> <td>Ksh. "
+        $("#summary-body").append("<tr><td>Delivery Address</td><td>"+ newAddress.fullAddress() + "</td><tr> <td>Total Order Costs</td> <td>Ksh. "
         + (totalCost + totalToppingCost) +
-        "</td></tr><tr><td>Delivery Fee </td><td>Ksh. "+ deliveryFee + "</td><tr><td><strong>Grand Total</td><td>Ksh. "
-        + (totalCost + totalToppingCost+deliveryFee) + "</strong></td></tr>");
+        "</td></tr><tr><td>Delivery Fee </td><td>Ksh. "+ deliveryFee + "</td><tr><td><strong>Grand Total</strong></td><td><strong>Ksh. "
+        + (totalCost + totalToppingCost+deliveryFee) + "</strong></strong></td></tr>");
 
         // var orderNumber = Ra();
         $(".order-number").html("ORD"+6837);
@@ -115,8 +116,12 @@ $(document).ready(function(){
         var newOrder = new Order(pizzaSize,pizzaPrice, crust, crustPrice);
             
         // Each checked
+            var displayToppings = [];
             $('#topping:checked').each(function() {
-            
+                
+                displayToppings.push($(this).val());
+                
+                
                 var toppingPrice = toppingPrices[$(this).val()];
                 totalToppingCost = totalToppingCost + toppingPrice;
                 
@@ -129,10 +134,12 @@ $(document).ready(function(){
           
         //  display orders every time they are added
         $("#order-body").append("<tr> <td></td> <td>"+ newOrder.pizzaSize.size +"</td><td>"+ 
-        newOrder.crust.crustName +"</td><td> "+ newOrder.toppings[0].price+ "</td><td>Ksh. "+ newOrder.pizzaSize.price +" Ksh.. "+ newOrder.crust.price +"</td></tr>");
+        newOrder.crust.crustName +"</td><td  class='toppingCell'> " + displayToppings + "</td><td>Ksh. "+ (newOrder.pizzaSize.price + newOrder.crust.price+totalToppingCost) +"</td></tr>");
         
         // only show order details after atleast an order has been made
-        $('.order-col2').slideDown(500);
+        $('#order-details').slideDown(500);
+        $('#col2-img').hide(1000);
+        
     }
  });
 
@@ -143,8 +150,8 @@ $(document).ready(function(){
         var street = $(".street").val();
         var town = $(".town").val();
         var county = $(".county").val();
+        newAddress= new Address(street,town,county);
 
-        var newAddress= new Address(street,town,county);
       
         // hide modal after submit
         $('.address-modal').hide();
