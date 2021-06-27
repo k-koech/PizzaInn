@@ -163,8 +163,8 @@ $(document).ready(function(){
 // show back to top button on scroll
 $(window).scroll(function() {
     if ($(this).scrollTop()) {
-        $('#toTop:hidden').stop(true, true).fadeIn();
+        $('.backToTop:hidden').stop(true, true).fadeIn();
     } else {
-        $('#toTop').stop(true, true).fadeOut();
+        $('.backToTop').stop(true, true).fadeOut();
     }
 });

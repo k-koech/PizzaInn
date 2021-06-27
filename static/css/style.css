@@ -381,10 +381,7 @@ box-shadow: none !important;
 {
    text-decoration: none;
 }
-#footer .my-float{
-	margin:auto;
-    font-size: 1.2em;
-}
+
 #footer .backToTop 
 {
     position:fixed;
@@ -407,6 +404,7 @@ box-shadow: none !important;
 
 #footer .float
 {
+    font-size: 1.2em;
 	position:fixed;
 	width:50px;
 	height:50px;
@@ -438,9 +436,74 @@ height: 100vh;
     color: #fff;
     font-size: 1.9em;
 }
+
+
+#header .navbar-brand
+{
+    color: #fff;
+    font-size: 1.9em;
+    font-weight: 1000;
+}
+/* Bottom left image */
+#header .bottom-left 
+{
+    width: 15%;
+}
+  
+  /* Top left image */
+#header img.top-left 
+{
+    position: absolute;
+    top: 8px;
+    left: 16px;
+}
+  
+  /* Top right image */
+#header img.top-right 
+{
+    width: 10%;
+}
+  
+  /* Bottom right image */
+#header img.bottom-right 
+{
+    width: 20%;
+}
+  
+#header .container-nav 
+{
+    position: absolute;
+    top: 0px;
+    z-index: 1000;
+    width: 100%;
+}
+
+#header .container-nav .navbar 
+{
+    color: #fff !important;
+}
+
+#header  .container-fluid
+{
+    position: relative;
+}
+#header .container-nav li a
+{
+    font-size: 1.3em;
+}
+#header .col1
+{
+    padding-top: 10%;
+    padding-left: 10%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
 #header .navbar-toggler .navbar-toggler-icon
 {
-    background-color: ;
     color: #fff !important;
     border-color: crimson !important;
 }
@@ -449,6 +512,7 @@ height: 100vh;
     padding: 1em;
     border-radius: 1em;
     background-color: #fff;
+    color: #000;
 }
 
 #header .col1
@@ -458,14 +522,14 @@ height: 100vh;
 }
 #header .col1 h1
 {
-    font-size: 3em;
+    font-size: 2em;
     color: #fff;
     font-weight: 1000;
 }
 
 #header .col1 h3
 {
-    color: #fff;
+    font-size: 1em;
 }
 #header .col1 button
 {
@@ -475,10 +539,11 @@ height: 100vh;
 
 }
 #header .col1 .delivery
-{margin-top: 2em;
+{
+    margin-top: 2em;
     display: flex;
     color: #fff;
-    height: 5em;
+    height:4em;
     align-items: center;
 }
 #header .col1 .delivery img
@@ -514,26 +579,14 @@ height: 100vh;
 
 
 /* ==========FOOTER============= */ 
-#footer a
+#footer .backToTop 
 {
-   text-decoration: none;
+	right:19%;
 }
+
 #footer .float
 {
-	position:fixed;
-	width:65px;
-	height:65px;
-	bottom:40px;
-	right:3%;
-	background-color:rgba(1, 80, 50, 0.925);
-	color:#FFF;
-	border-radius:50px;
-	text-align:center;
-	box-shadow: 2px 2px 3px #999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-   
+	right:7%;
 }
 
 }
