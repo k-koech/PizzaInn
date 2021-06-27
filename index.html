@@ -12,8 +12,26 @@
     <title>Pizza Inn</title>
   </head>
   <body>
+      <!-- Pe-loader -->
+    <div class="preloader" id="preloader" style="display: none;">
+    <div class="preloader-inner">
+        <div class="spinner">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+    </div>
+    </div>
+
 <!-- HEADER SECTION -->
 <section id="header">
+  <!-- images in the cordes -->
+  <img src="static/images/leaf1.png" class="img-fluid bottom-left">
+  <img src="static/images/Leaf2.png" class="img-fluid bottom-right">
+  <img src="static/images/tomato.png" class="img-fluid centered">
+  <img src="static/images/stars.png" class="img-fluid top-left">
+  <img src="static/images/stars.png" class="img-fluid top-right">
+
     <div class="container-nav mt-3">
         <nav class="navbar navbar-expand-lg ">
             <a class="navbar-brand ml-4" href="#">PizzaInn</a>
@@ -48,8 +66,8 @@
     <div class="container-fluid">        
         <div class="row">
           <div class="col-md-6 col-sm-12 col-12 col1" >
-            <h1>ENJOY OUR<br> DELICIOUS FOOD</h1>
-            <h3>Buy 2 get 1 Free</h3>
+            <h1>ENJOY OUR<br> DELICIOUS PIZZA</h1>
+            <h3>Buy 2 get 1 Free every Saturday!!</h3>
             <button type="button" class="btn btn-dark"><a href="#order">Make Order Now</a></button>
             <div class="delivery">
                 <img class="img-fluid" src="static/images/delivery.png" >
@@ -192,10 +210,14 @@
                   </div>
             </form>  
         </div>
-        
-        <div class="col-md-7 col-12">
-          <div id="order-details">
-            <table class="table table-dark">
+
+           <!-- start of second column -->
+        <div class="col-md-7 col-12 order-col2">
+          <div id="col2-img">  <!---->
+            <!-- background image -->
+          </div> <!---->
+          <div id="order-details"> <!-- start of orders-->
+              <table class="table table-dark orderDetailsTable">
                 <thead>
                     <caption>Order Details</caption>
                   <tr>
@@ -215,16 +237,28 @@
                   <h6 >Total Costs :<span class="totalCost"> </span></h6>
               </div>
                
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                Add Delivery Address
-              </button>
-                
-              <button type="button" class="btn btn-success">Proceed to Checkout</button>
- 
-             <!-- Button trigger modal -->
-                
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+             
+              <hr>
+              <div class="row p-2">
+                  <div class="col mt-3">
+                    <div class="check-delivery">
+                        <input class="form-check-input" type="checkbox" value="delivery-checkbox" id="delivery-checkbox">
+                        <label class="form-check-label">I want it Delivered! </label>
+                    </div>  
+                  </div>
+                  <div class="col mt-3">
+                 <!-- Button trigger address-modal -->
+                    <button type="button" class="btn btn-primary addAddress mt-3" data-toggle="modal" data-target="#addressModal">
+                        <i class="fa fa-map-marker" aria-hidden="true"></i> Add Delivery Address
+                    </button>
+                 <!-- Button trigger checkout-modal -->
+                    <button type="button" class="btn btn-success checkout mt-3" data-toggle="modal" data-target="#checkoutModal">
+                        <i class="fa fa-shopping-basket" aria-hidden="true" ></i> Proceed to Checkout</button>
+                  </div>
+              </div>
+                              
+                <!--Start of Address modal form -->
+                <div class="modal fade address-modal" id="addressModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -235,21 +269,19 @@
                         </div>
                         <div class="modal-body">
                             <form id="address">
-                            <div class="new-address">
                                 <div class="form-group"> 
                                   <label for="new-street">Street</label> 
-                                  <input type="text" class="form-control street"> 
+                                  <input type="text" class="form-control street" oninvalid="this.setCustomValidity('Please add the street!')" oninput="this.setCustomValidity('')" required>
                                 </div> 
                                 <div class="form-group"> 
                                   <label for="new-town">Town(eg Karen, Rongai ...)</label> 
-                                  <input type="text" class="form-control town"> 
+                                  <input type="text" class="form-control town" oninvalid="this.setCustomValidity('Please add your town!')" oninput="this.setCustomValidity('')" required>
                                 </div> 
                                 <div class="form-group"> 
                                   <label for="new-county">County</label> 
-                                  <input type="text" class="form-control county " value="Nairobi" readonly> 
+                                  <input type="text" class="form-control county" value="Nairobi" readonly> 
                                 </div>    
-                                <button type="submit" class="btn btn-primary add-address">Save Address</button>
-                              </div>
+                                <button type="submit" class="btn btn-dark add-address">Save Address</button>
                             </form>
                         </div>
                         <div class="modal-footer">
@@ -258,9 +290,41 @@
                     </div>
                     </div>
                 </div>
-              <!-- end of modal -->
-          </div>
+              <!-- end of address modal form-->
+
+                <!-- start of checkout Modal -->
+                <div class="modal fade" id="checkoutModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Order number <span class="bold order-number">j</span></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table">
+                            <thead>
+                                <caption class="text-center">Summary</caption>
+                            </thead>
+                            <tbody id="summary-body">
+                                            <!-- summary details displayed here -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                <!-- end of checkout modal form-->
+              
+
+          </div> <!-- end of orders-->
         </div>
+        <!-- end of second column -->
+
       </div>
     </div>
     </section>
@@ -317,7 +381,7 @@
             <i class="fa fa-arrow-up toTop" aria-hidden="true"></i>
          </a>    
  
-        <a href="https://api.whatsapp.com/send?phone=254725801772&text=Hello%2C%20am%20happy%20with%20your%20work%20bravo" class="float blink" data-toggle="modal" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" target="_blank" data-placement="left" title="Please leave a message for me">
+        <a href="https://api.whatsapp.com/send?phone=254725801772&text=Hello%2C%20am%20happy%20with%20your%20work%20bravo" class="float blink" title="Please leave a message for me">
             <i class="fa fa-whatsapp fa-2x" aria-hidden="true"></i>
         </a>
 

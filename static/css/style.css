@@ -14,11 +14,16 @@ a:hover
 {
     color: rgb(214, 207, 178);
 }
-
+input[type='checkbox']:hover
+{
+    cursor: pointer;
+}
 /* ==========HEADER============= */
 #header
 {
 height: 100vh;
+background-color: #131313;
+position: relative;
 }
 #header .navbar-brand
 {
@@ -26,6 +31,47 @@ height: 100vh;
     font-size: 1.9em;
     font-weight: 1000;
 }
+/* Bottom left image */
+#header .bottom-left 
+{
+    position: absolute;
+    bottom: 8px;
+    left: 5px;
+}
+  
+  /* Top left image */
+#header .top-left 
+{
+    position: absolute;
+    top: 8px;
+    left: 16px;
+}
+  
+  /* Top right image */
+#header .top-right 
+{
+position: absolute;
+top: 8px;
+right: 16px;
+}
+  
+  /* Bottom right image */
+#header .bottom-right 
+{
+position: absolute;
+bottom: 0px;
+right: 0px;
+}
+  
+  /* Centered image */
+#header .centered 
+{
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+
 #header .container-nav 
 {
     position: absolute;
@@ -46,13 +92,11 @@ height: 100vh;
 #header .container-nav li a
 {
     font-size: 1.3em;
-    color: black;
 }
 #header .col1
 {
     padding-top: 10%;
     padding-left: 10%;
-    background-color: rgb(26, 26, 26);
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -150,7 +194,7 @@ height: 100vh;
 }
 #menu .row2 .menu-items p
 {
-font-size: 1.2em;
+/* font-size: 1.2em; */
 }
 
 
@@ -164,11 +208,24 @@ font-size: 1.2em;
 {
     padding: 1em;
 }
-#order button
+
+#order .row1 #order-details
+{
+    display: none;
+    max-height: 35em;
+    overflow: scroll;
+}
+
+
+#order .addAddress, .checkout, .order-button
 {
     background-color: brown !important;
     border:0;
     font-size: 1em;
+}
+#order .addAddress
+{
+    display: none;
 }
 #order h2
 {
@@ -185,17 +242,17 @@ font-size: 1.2em;
 }
 #order form
 {
-    font-size: 1.3em;
+    font-size: 1.1em;
 }
 #order table #order-body
 {
     counter-reset: row-num;
 }
 
-table tr {
+table.orderDetailsTable tr {
   counter-increment: row-num;
 }
-table tr td:first-child::before 
+table.orderDetailsTable tr td:first-child::before 
 {
     content: counter(row-num) ". ";
 }
@@ -211,7 +268,10 @@ table tr td:first-child::before
 {
     display: none;
 }
-
+/* #order button.checkout
+{
+    display: none;
+} */
 
 /* ==========FOOTER============= */ 
 #footer
@@ -310,20 +370,6 @@ box-shadow: none !important;
     font-size: larger;
 } 
 
-#footer .float
-{
-	position:fixed;
-	width:50px;
-	height:50px;
-	bottom:40px;
-	right:3%;
-	background-color:#0C9;
-	color:#FFF;
-	border-radius:50px;
-	text-align:center;
-	box-shadow: 2px 2px 3px #999;
-    display: flex;
-}
 #footer a
 {
    text-decoration: none;
@@ -355,8 +401,8 @@ box-shadow: none !important;
 #footer .float
 {
 	position:fixed;
-	width:65px;
-	height:65px;
+	width:50px;
+	height:50px;
 	bottom:40px;
 	right:3%;
 	background-color:brown;

@@ -17,9 +17,9 @@ function Order(pizza,pizzaPrice, crust, crustPrice)
    this.crust = {
        crustName : crust,
        price : crustPrice
-   }
+   };
    this.toppings = [];
-   this.address = [];
+   this.addresses = [];
 }
 
 function Topping(name, price)
@@ -42,6 +42,7 @@ Address.prototype.fullAddress = function()
 
 // Prices objects
 var totalCost = 0;
+var deliveryFee=150;
 var totalToppingCost = 0;
 var pizzaPrices = {
     Small: 600,
@@ -61,6 +62,24 @@ var toppingPrices = {
 }
 
 
+// If delivery checkbox is checked show ad delivery address button
+$("#delivery-checkbox").click(function(event){
+  $(".addAddress").toggle();
+});
+// Find the total cost after checkout button is clicked 
+$(document).ready(function(){
+    $("button.checkout").click(function(event){
+        $("#summary-body").append("<tr><td>Delivery Address</td><td>"+ address.fullAddress + "</td><tr> <td>Total Order Costs</td> <td>Ksh. "
+        + (totalCost + totalToppingCost) +
+        "</td></tr><tr><td>Delivery Fee </td><td>Ksh. "+ deliveryFee + "</td><tr><td><strong>Grand Total</td><td>Ksh. "
+        + (totalCost + totalToppingCost+deliveryFee) + "</strong></td></tr>");
+
+        // var orderNumber = Ra();
+        $(".order-number").html("ORD"+6837);
+      });
+});
+
+
 $(document).ready(function(){
   
   // Order form
@@ -70,7 +89,6 @@ $(document).ready(function(){
     var pizzaSize = $("#pizza-size").val();
     var crust = $("#crust").val();
 
-    // var checkboxes = document.querySelectorAll('input[type="checkbox"]');
     var checkBoxes = document.getElementsByClassName( 'form-check-input' );
     var isChecked = false;
     for (var i = 0; i < checkBoxes.length; i++) 
@@ -83,7 +101,7 @@ $(document).ready(function(){
 
     if ( !isChecked ) 
     {
-        alert( 'Please, check at least one checkbox!' );
+        alert( 'Please, add ateast one Topping!' );
     } 
     else 
     { 
@@ -108,28 +126,18 @@ $(document).ready(function(){
 
         totalCost = totalCost + (pizzaPrice + crustPrice );
         $(".totalCost").text(totalCost + totalToppingCost );
-        
-    
+          
+        //  display orders every time they are added
         $("#order-body").append("<tr> <td></td> <td>"+ newOrder.pizzaSize.size +"</td><td>"+ 
         newOrder.crust.crustName +"</td><td> "+ newOrder.toppings[0].price+ "</td><td>Ksh. "+ newOrder.pizzaSize.price +" Ksh.. "+ newOrder.crust.price +"</td></tr>");
-
-
+        
+        // only show order details after atleast an order has been made
+        $('.order-col2').slideDown(500);
     }
  });
 
- //   Address form
-    $("form#address").submit(function(event){
-        event.preventDefault();
+    //    Saving Data From Address form
 
-        var street = $(".street").val();
-        var town = $(".town").val();
-        var county = $(".county").val();
-
-        var newAddress= new Address(street, town, county);
-        newOrder.address.push(newAddress);
-
-        alert(street);
-    });
         
 
 });
