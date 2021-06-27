@@ -70,13 +70,29 @@ $("#delivery-checkbox").click(function(event){
 // Find the total cost after checkout button is clicked 
 $(document).ready(function(){
     $("button.checkout").click(function(event){
-        $("#summary-body").append("<tr><td>Delivery Address</td><td>"+ newAddress.fullAddress() + "</td><tr> <td>Total Order Costs</td> <td>Ksh. "
+        var address;
+        if(isEmpty(newAddress.fullAddress()))
+        {
+           address = "empty";
+        }
+        // else if(newAddress.fullAddress() == null)
+        // {
+        //     address = "null";
+        // }
+        else
+        {
+            address = "not empty";
+        }
+
+        $("#summary-body").append("<tr><td>Delivery Address</td><td>"+ address + "</td><tr> <td>Total Order Costs</td> <td>Ksh. "
         + (totalCost + totalToppingCost) +
         "</td></tr><tr><td>Delivery Fee </td><td>Ksh. "+ deliveryFee + "</td><tr><td><strong>Grand Total</strong></td><td><strong>Ksh. "
         + (totalCost + totalToppingCost+deliveryFee) + "</strong></strong></td></tr>");
 
         // var orderNumber = Ra();
         $(".order-number").html("ORD"+6837);
+
+        // $(".checkout").attr("disabled", true);
       });
 });
 
