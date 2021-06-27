@@ -54,14 +54,26 @@ var crustPrices = {
     Stuffed: 190,
     Gluten_Free: 300
 }
-var toppingPrices = {
+// Toppings depending on the sizes
+var largeToppingPrices = {
     Pepperoni: 300,
     Sausage: 230,
     Bacon: 340,
     Green_Peppers: 190
 }
 
-
+var mediumToppingPrices = {
+    Pepperoni: 250,
+    Sausage: 200,
+    Bacon: 220,
+    Green_Peppers: 130
+}
+var smallToppingPrices = {
+    Pepperoni: 180,
+    Sausage: 150,
+    Bacon: 170,
+    Green_Peppers: 100
+}
 // If delivery checkbox is checked show ad delivery address button
 $("#delivery-checkbox").click(function(event){
   $(".addAddress").toggle();
@@ -133,12 +145,24 @@ $(document).ready(function(){
             
         // Each checked
             var displayToppings = [];
-            $('#topping:checked').each(function() {
+            $('#topping:checked').each(function() 
+            {
                 
                 displayToppings.push($(this).val());
+                var toppingPrice;
+                if(pizzaSize=="Small")
+                {
+                    toppingPrice = smallToppingPrices[$(this).val()];
+                }
+                else if(pizzaSize=="Medium")
+                {
+                    toppingPrice = mediumToppingPrices[$(this).val()];
+                }
+                else
+                {
+                    toppingPrice = largeToppingPrices[$(this).val()];
+                }
                 
-                
-                var toppingPrice = toppingPrices[$(this).val()];
                 totalToppingCost = totalToppingCost + toppingPrice;
                 
                 var newTopping = new Topping($(this).val(), toppingPrice);
