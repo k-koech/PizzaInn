@@ -43,6 +43,10 @@ Address.prototype.fullAddress = function()
 var totalCost = 0;
 var deliveryFee=150;
 var newAddress;
+var street;
+var town=null;
+var county;
+        
 var totalToppingCost = 0;
 var pizzaPrices = {
     Small: 600,
@@ -77,35 +81,6 @@ var smallToppingPrices = {
 // If delivery checkbox is checked show ad delivery address button
 $("#delivery-checkbox").click(function(event){
   $(".addAddress").toggle();
-});
-
-// Find the total cost after checkout button is clicked 
-$(document).ready(function(){
-    $("button.checkout").click(function(event){
-        var address;
-        if(isEmpty(newAddress.fullAddress()))
-        {
-           address = "empty";
-        }
-        // else if(newAddress.fullAddress() == null)
-        // {
-        //     address = "null";
-        // }
-        else
-        {
-            address = "not empty";
-        }
-
-        $("#summary-body").append("<tr><td>Delivery Address</td><td>"+ address + "</td><tr> <td>Total Order Costs</td> <td>Ksh. "
-        + (totalCost + totalToppingCost) +
-        "</td></tr><tr><td>Delivery Fee </td><td>Ksh. "+ deliveryFee + "</td><tr><td><strong>Grand Total</strong></td><td><strong>Ksh. "
-        + (totalCost + totalToppingCost+deliveryFee) + "</strong></strong></td></tr>");
-
-        // var orderNumber = Ra();
-        $(".order-number").html("ORD"+6837);
-
-        // $(".checkout").attr("disabled", true);
-      });
 });
 
 
@@ -187,12 +162,11 @@ $(document).ready(function(){
     $("form#address").submit(function(event){
         event.preventDefault();
 
-        var street = $(".street").val();
-        var town = $(".town").val();
-        var county = $(".county").val();
+        street = $(".street").val();
+        town = $(".town").val();
+        county = $(".county").val();
         newAddress= new Address(street,town,county);
 
-      
         // hide modal after submit
         $('.address-modal').hide();
         $('body').removeClass('modal-open');
@@ -207,6 +181,43 @@ $(document).ready(function(){
 });
 
 
+
+// Find the total cost after checkout button is clicked 
+$(document).ready(function(){
+    $("button.checkout").click(function(event){
+        var address;
+
+        if(town === null)
+        {
+            $(".deliveryAddress").hide();
+            $(".deliveryFee").hide();
+            $(".grandTotal").html("Ksh. " + (totalCost + totalToppingCost));
+        }
+    
+        else
+        {
+            $(".deliveryAddress").text(town);
+            $(".deliveryFee").html("Ksh. " + deliveryFee);
+            $(".grandTotal").html("Ksh. " + (totalCost + totalToppingCost+deliveryFee));
+        }
+
+        
+        $(".totalOrderCosts").html("Ksh. " + (totalCost + totalToppingCost));
+        
+      
+        // var orderNumber = Ra();
+        $(".order-number").html("ORD"+Math.floor(Math.random()*(1000-10000)));
+
+        // console.log(newAddress.street);      
+
+        // $(".checkout").attr("disabled", true);
+      
+
+      });
+});
+
+
+
 // show back to top button on scroll
 $(window).scroll(function() {
     if ($(this).scrollTop()) {
@@ -215,3 +226,4 @@ $(window).scroll(function() {
         $('.backToTop').stop(true, true).fadeOut();
     }
 });
+

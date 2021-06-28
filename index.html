@@ -297,7 +297,7 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Order number <span class="bold order-number">j</span></h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Order number <span class="font-weight-bold order-number">j</span></h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                         </button>
@@ -309,6 +309,10 @@
                             </thead>
                             <tbody id="summary-body">
                                             <!-- summary details displayed here -->
+                                <tr><td>Delivery Address</td><td class="deliveryAddress"></td>
+                                <tr><td>Total Order Costs</td><td class="totalOrderCosts"></td></tr>
+                                <tr><td>Delivery Fee </td><td class="deliveryFee">Ksh. "+ deliveryFee + "</td></tr>
+                                <tr><td><strong>Grand Total</strong></td><td class="grandTotal"><strong>Ksh. " + (totalCost + totalToppingCost+deliveryFee) + "</strong></strong></td></tr>
                             </tbody>
                         </table>
                     </div>
