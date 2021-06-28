@@ -81,13 +81,15 @@ var smallToppingPrices = {
 }
 // If delivery checkbox is checked show ad delivery address button
 $("#delivery-checkbox").click(function(event){
-  $(".addAddress").toggle();
+//   $(".addAddress").toggle();
+
     if (document.querySelector('#delivery-checkbox').checked) 
     {
-        $(".checkout").attr("disabled", true);
+        // $('#addressModal').modal();
+        // $("#addressModal").show();
     }
     else{
-        $(".checkout").attr("disabled", false);
+        // $(".checkout").attr("disabled", false);
     }
 
 });
@@ -198,6 +200,8 @@ $(document).ready(function(){
         // enable a checkout button after address has been addded
         $(".checkout").attr("disabled", false);
 
+        // show an alert for address
+        alert("Your order will be delivered to "+newAddress.fullAddress());
     });
         
 

@@ -283,10 +283,7 @@ table.orderDetailsTable tr td:first-child::before
 {
     display: none;
 }
-/* #order button.checkout
-{
-    display: none;
-} */
+
 
 /* ==========FOOTER============= */ 
 #footer
