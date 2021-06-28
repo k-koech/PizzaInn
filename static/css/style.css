@@ -31,6 +31,12 @@ position: relative;
     font-size: 1.9em;
     font-weight: 1000;
 }
+#header .navbar-toggler-icon
+{
+    background-color: #fff;
+    color: #000;
+    border: 1px solid rgb(11, 0, 0);
+}
 /* Bottom left image */
 #header .bottom-left 
 {
@@ -218,7 +224,7 @@ transform: translate(-50%, -50%);
 }
 #order #col2-img
 {
-    background-image: url("../images/order1.png");
+    background-image: url(../images/order1.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -493,11 +499,6 @@ height: 100vh;
     font-size: 1.3em;
 }
 
-#header .navbar-toggler .navbar-toggler-icon
-{
-    color: #fff !important;
-    border-color: crimson !important;
-}
 #header ul
 {
     padding: 1em;
