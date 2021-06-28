@@ -128,6 +128,7 @@ $(document).ready(function(){
             
         // Each checked
             var displayToppings = [];
+            var subTotals = 0;
             $('#topping:checked').each(function() 
             {
                 
@@ -154,11 +155,13 @@ $(document).ready(function(){
             });
 
         totalCost = totalCost + (pizzaPrice + crustPrice );
+       
+        subTotals = subTotals + totalToppingCost;
         $(".totalCost").text(totalCost + totalToppingCost );
           
         //  display orders every time they are added
         $("#order-body").append("<tr> <td></td> <td>"+ newOrder.pizzaSize.size +"</td><td>"+ 
-        newOrder.crust.crustName +"</td><td  class='toppingCell'> " + displayToppings + "</td><td>Ksh. "+ (newOrder.pizzaSize.price + newOrder.crust.price+totalToppingCost) +"</td></tr>");
+        newOrder.crust.crustName +"</td><td  class='toppingCell'> " + displayToppings + "</td><td>Ksh. "+ (newOrder.pizzaSize.price + newOrder.crust.price+subTotals) +"</td></tr>");
         
         // only show order details after atleast an order has been made
         $('#order-details').slideDown(500);
@@ -204,7 +207,7 @@ $(document).ready(function(){
         {
             $(".deliveryAddressRow").hide();
             $(".deliveryFeeRow").hide();
-            $(".grandTotal").html("Ksh. " + (totalCost + totalToppingCost));
+            $(".grandTotal").html("Ksh. " + (totalCost + TotalToppingCost));
         }
     
         else
@@ -214,10 +217,10 @@ $(document).ready(function(){
             $(".deliveryFeeRow").show();
             
             $(".deliveryFee").html("Ksh. " + (deliveryFee));
-            $(".grandTotal").html("Ksh. " + (totalCost + totalToppingCost+deliveryFee));
+            $(".grandTotal").html("Ksh. " + (totalCost + TotalToppingCost+deliveryFee));
         }
 
-        $(".totalOrderCosts").html("Ksh. " + (totalCost + totalToppingCost));
+        $(".totalOrderCosts").html("Ksh. " + (totalCost + TotalToppingCost));
         
         // generate an order number
         $(".order-number").html("ORD"+Math.floor(Math.random()*(1000-10000)));      

@@ -8,7 +8,6 @@ html
 a
 {
     text-decoration: none !important;
-    color: #fff;
 }
 a:hover
 {
@@ -34,9 +33,12 @@ position: relative;
 #header .navbar-toggler-icon
 {
     background-color: #fff;
+    border-radius: 0.2em;
+    padding: 0.9em;
     color: #000;
-    border: 1px solid rgb(11, 0, 0);
+    border: 1px solid rgb(140, 140, 140);
 }
+
 /* Bottom left image */
 #header .bottom-left 
 {
@@ -86,11 +88,6 @@ transform: translate(-50%, -50%);
     width: 100%;
 }
 
-#header .container-nav .navbar 
-{
-    color: #fff !important;
-}
-
 #header  .container-fluid
 {
     position: relative;
@@ -98,6 +95,7 @@ transform: translate(-50%, -50%);
 #header .container-nav li a
 {
     font-size: 1.3em;
+    color: #fff;
 }
 #header .col1
 {
@@ -124,7 +122,10 @@ transform: translate(-50%, -50%);
     margin: 1em;
     font-size: 1.4em;
     width: 10em;
-
+}
+#header .col1 button a
+{
+    color: #fff;
 }
 #header .col1 .delivery
 {margin-top: 2em;
@@ -444,7 +445,6 @@ height: 100vh;
     font-size: 1.9em;
 }
 
-
 #header .navbar-brand
 {
     color: #fff;
@@ -456,7 +456,10 @@ height: 100vh;
 {
     width: 15%;
 }
-  
+#header .container-nav li a
+{
+    color: #000;
+} 
   /* Top left image */
 #header img.top-left 
 {
@@ -484,12 +487,6 @@ height: 100vh;
     z-index: 1000;
     width: 100%;
 }
-
-#header .container-nav .navbar 
-{
-    color: #fff !important;
-}
-
 #header  .container-fluid
 {
     position: relative;
