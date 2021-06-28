@@ -217,7 +217,7 @@
             <!-- background image -->
           </div> <!---->
           <div id="order-details"> <!-- start of orders-->
-              <table class="table table-dark orderDetailsTable">
+              <table class="table table orderDetailsTable">
                 <thead>
                     <caption>Order Details</caption>
                   <tr>
@@ -309,10 +309,10 @@
                             </thead>
                             <tbody id="summary-body">
                                             <!-- summary details displayed here -->
-                                <tr><td>Delivery Address</td><td class="deliveryAddress"></td>
+                                <tr class="deliveryAddressRow"><td>Delivery Address</td><td class="deliveryAddress"></td></tr>
                                 <tr><td>Total Order Costs</td><td class="totalOrderCosts"></td></tr>
-                                <tr><td>Delivery Fee </td><td class="deliveryFee">Ksh. "+ deliveryFee + "</td></tr>
-                                <tr><td><strong>Grand Total</strong></td><td class="grandTotal"><strong>Ksh. " + (totalCost + totalToppingCost+deliveryFee) + "</strong></strong></td></tr>
+                                <tr class="deliveryFeeRow"><td>Delivery Fee </td><td class="deliveryFee">Ksh. "+ deliveryFee + "</td></tr>
+                                <tr class="font-weight-bold"><td>Grand Total</td><td class="grandTotal">Ksh. " + (totalCost + totalToppingCost+deliveryFee) + "</td></tr>
                             </tbody>
                         </table>
                     </div>

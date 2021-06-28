@@ -36,7 +36,7 @@ function Address(street, town, county)
 //  Prototype
 Address.prototype.fullAddress = function()
 {
-    return this.street + " " + this.town + " " + this.county;
+    return this.street + ", " + this.town + " " + this.county;
 }
 
 // Prices objects
@@ -81,6 +81,14 @@ var smallToppingPrices = {
 // If delivery checkbox is checked show ad delivery address button
 $("#delivery-checkbox").click(function(event){
   $(".addAddress").toggle();
+    if (document.querySelector('#delivery-checkbox').checked) 
+    {
+        $(".checkout").attr("disabled", true);
+    }
+    else{
+        $(".checkout").attr("disabled", false);
+    }
+
 });
 
 
@@ -125,6 +133,7 @@ $(document).ready(function(){
                 
                 displayToppings.push($(this).val());
                 var toppingPrice;
+
                 if(pizzaSize=="Small")
                 {
                     toppingPrice = smallToppingPrices[$(this).val()];
@@ -138,7 +147,7 @@ $(document).ready(function(){
                     toppingPrice = largeToppingPrices[$(this).val()];
                 }
                 
-                totalToppingCost = totalToppingCost + toppingPrice;
+                totalToppingCost += toppingPrice;
                 
                 var newTopping = new Topping($(this).val(), toppingPrice);
                 newOrder.toppings.push(newTopping);
@@ -149,12 +158,14 @@ $(document).ready(function(){
           
         //  display orders every time they are added
         $("#order-body").append("<tr> <td></td> <td>"+ newOrder.pizzaSize.size +"</td><td>"+ 
-        newOrder.crust.crustName +"</td><td  class='toppingCell'> " + displayToppings + "</td><td>Ksh. "+ (newOrder.pizzaSize.price + newOrder.crust.price+totalToppingCost) +"</td></tr>");
+        newOrder.crust.crustName +"</td><td  class='toppingCell'> " + displayToppings + "</td><td>Ksh. "+ (newOrder.pizzaSize.price + newOrder.crust.price+totalToppingCost) +"  "+ totalToppingCost+"</td></tr>");
         
         // only show order details after atleast an order has been made
         $('#order-details').slideDown(500);
         $('#col2-img').hide(1000);
-        
+
+        // update the total topping cost 
+        totalToppingCost = 0;
     }
  });
 
@@ -174,6 +185,8 @@ $(document).ready(function(){
         // disable button after address has been added
         $(".addAddress").html('<i class="fa fa-check" aria-hidden="true"></i> Delivery address added!');
         $(".addAddress").attr("disabled", true);
+        // enable a checkout button after address has been addded
+        $(".checkout").attr("disabled", false);
 
     });
         
@@ -189,29 +202,25 @@ $(document).ready(function(){
 
         if(town === null)
         {
-            $(".deliveryAddress").hide();
-            $(".deliveryFee").hide();
+            $(".deliveryAddressRow").hide();
+            $(".deliveryFeeRow").hide();
             $(".grandTotal").html("Ksh. " + (totalCost + totalToppingCost));
         }
     
         else
         {
-            $(".deliveryAddress").text(town);
-            $(".deliveryFee").html("Ksh. " + deliveryFee);
+            $(".deliveryAddress").html(newAddress.fullAddress());
+            $(".deliveryAddressRow").show();
+            $(".deliveryFeeRow").show();
+            
+            $(".deliveryFee").html("Ksh. " + (deliveryFee));
             $(".grandTotal").html("Ksh. " + (totalCost + totalToppingCost+deliveryFee));
         }
 
-        
         $(".totalOrderCosts").html("Ksh. " + (totalCost + totalToppingCost));
         
-      
-        // var orderNumber = Ra();
-        $(".order-number").html("ORD"+Math.floor(Math.random()*(1000-10000)));
-
-        // console.log(newAddress.street);      
-
-        // $(".checkout").attr("disabled", true);
-      
+        // generate an order number
+        $(".order-number").html("ORD"+Math.floor(Math.random()*(1000-10000)));      
 
       });
 });
