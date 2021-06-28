@@ -45,6 +45,7 @@ var deliveryFee=150;
 var newAddress;
 var street;
 var town=null;
+var subTopping=0;
 var county;
         
 var totalToppingCost = 0;
@@ -128,7 +129,8 @@ $(document).ready(function(){
             
         // Each checked
             var displayToppings = [];
-            var subTotals = 0;
+            var subTotals = 0; 
+            totalToppingCost = 0;
             $('#topping:checked').each(function() 
             {
                 
@@ -149,15 +151,20 @@ $(document).ready(function(){
                 }
                 
                 totalToppingCost += toppingPrice;
-                
+                // subTopping+=totalToppingCost;
+       
                 var newTopping = new Topping($(this).val(), toppingPrice);
                 newOrder.toppings.push(newTopping);
             });
-
-        totalCost = totalCost + (pizzaPrice + crustPrice );
-       
+         
+            
+        // totalCost = totalCost + (pizzaPrice + crustPrice );
+        // SUBTOTALS OF TOPPINGS
         subTotals = subTotals + totalToppingCost;
-        $(".totalCost").text(totalCost + totalToppingCost );
+        totalCost = totalCost+(newOrder.pizzaSize.price + newOrder.crust.price+subTotals)
+  
+        $(".totalCost").text(totalCost);
+        
           
         //  display orders every time they are added
         $("#order-body").append("<tr> <td></td> <td>"+ newOrder.pizzaSize.size +"</td><td>"+ 
@@ -168,7 +175,7 @@ $(document).ready(function(){
         $('#col2-img').hide(1000);
 
         // update the total topping cost 
-        totalToppingCost = 0;
+        
     }
  });
 
@@ -207,7 +214,7 @@ $(document).ready(function(){
         {
             $(".deliveryAddressRow").hide();
             $(".deliveryFeeRow").hide();
-            $(".grandTotal").html("Ksh. " + (totalCost + TotalToppingCost));
+            $(".grandTotal").html("Ksh. " + (totalCost));
         }
     
         else
@@ -217,10 +224,10 @@ $(document).ready(function(){
             $(".deliveryFeeRow").show();
             
             $(".deliveryFee").html("Ksh. " + (deliveryFee));
-            $(".grandTotal").html("Ksh. " + (totalCost + TotalToppingCost+deliveryFee));
+            $(".grandTotal").html("Ksh. " + (totalCost +deliveryFee));
         }
 
-        $(".totalOrderCosts").html("Ksh. " + (totalCost + TotalToppingCost));
+        $(".totalOrderCosts").html("Ksh. " + (totalCost));
         
         // generate an order number
         $(".order-number").html("ORD"+Math.floor(Math.random()*(1000-10000)));      

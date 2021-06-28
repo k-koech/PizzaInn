@@ -5,9 +5,9 @@
     - The app enables the user to order pizza.
     - The web app allows the user to add delivery address if he/she wants to get it delivered.
     - It calculates the total cost after checkout.
-    - After adding every order the order details id displayed to the user
+    - After adding every order the order details is displayed to the user;
     - The topping prices depends on the pizza size.
-​
+​    - The checkout button is disabled if the user wants to the order to be delivered until he/she enters delivery address.
 ## Author(s) information
     - Kelvin Kipchumba Koech
   
