@@ -158,7 +158,7 @@ $(document).ready(function(){
           
         //  display orders every time they are added
         $("#order-body").append("<tr> <td></td> <td>"+ newOrder.pizzaSize.size +"</td><td>"+ 
-        newOrder.crust.crustName +"</td><td  class='toppingCell'> " + displayToppings + "</td><td>Ksh. "+ (newOrder.pizzaSize.price + newOrder.crust.price+totalToppingCost) +"  "+ totalToppingCost+"</td></tr>");
+        newOrder.crust.crustName +"</td><td  class='toppingCell'> " + displayToppings + "</td><td>Ksh. "+ (newOrder.pizzaSize.price + newOrder.crust.price+totalToppingCost) +"</td></tr>");
         
         // only show order details after atleast an order has been made
         $('#order-details').slideDown(500);
